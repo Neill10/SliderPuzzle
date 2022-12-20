@@ -1,39 +1,7 @@
-<<<<<<< HEAD:scripts.js
-function initialize(){
-    diceTable = document.getElementById("dicetable");
-    cellArray = [];
-    createTable();
-    console.log(cellArray);
-}
-
-function createTable(){
-    var num = 0;
-    for (var i = 0; i < 4; i++){
-        var newRow = diceTable.insertRow();
-        
-        for(var x = 0; x < 4; x++)
-        {
-            var newCell = newRow.insertCell();
-            if(num != 15)
-            {
-                newCell.innerHTML = num + 1;
-                num++;
-            }
-            else{
-                newCell.innerHTML = "empty";
-            }
-            cellArray.push(newCell);
-        }
-    }
-}
-
-function select(){
-    
-}
-=======
 function initialize(){
     //diceTable = document.getElementById("dicetable");
 
+    //HTML Element Objects
     c1 = document.getElementById("cell1");
     c2 = document.getElementById("cell2");
     c3 = document.getElementById("cell3");
@@ -54,7 +22,17 @@ function initialize(){
     cellArray = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16];
     createTable();
     console.log(cellArray);
+    //the cell that is selected
     selected = "";
+    //counter of selected cells 
+    selectCounter = 0;
+
+
+    for(cell of cellArray)
+    {
+        cell.selected = false;
+        console.log(cell.selected);
+    }
 }
 
 function createTable(){
@@ -81,7 +59,6 @@ function createTable(){
     */
 }
 
-function select(){
+function select(cell){
     
 }
->>>>>>> 04fa879baa62861af9123fe791b54d70629fcfdc:SliderPuzzle/scripts.js
