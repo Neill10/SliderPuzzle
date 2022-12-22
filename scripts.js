@@ -31,10 +31,13 @@ function initialize(){
 
     for(var i = 0; i < cellArray.length ; i++)
     {
-        cellArray[i].selected = false;
-        console.log(cell.selected);
+        //console.log(cellArray[i].selected);
         //cell position [1-16] (used to calculate valid moves up down left right)
         cellArray[i].cellPosition = i + 1;
+        //console.log(cellArray[i].cellPosition);
+        //the current number that is displayed at this cell
+        cellArray[i].display = i + 1;
+
     }
 }
 
@@ -61,42 +64,6 @@ function createTable(){
     }
     */
 }
-//checks if the two selected cells are valid to move(one of them is a blank)
-function validMove(secondCell){
-    
-}
-
-//@returns an array of valid moves
-//calculates the valid move
-function calculateValid(cell){
-    var valid = [];
-    var position = cell.getPosition;
-    var up = -1;
-    var down = -1;
-    var left = -1;
-    var right = -1;
-    if (!position <= 4){
-        up = position - 4;
-        valid.push(up);
-    }
-    if(position >= 16){ 
-        down = position + 4;
-        valid.push(down);
-    }
-    if(!(position == 1 || position == 5 || position == 9 || position == 13)){ 
-        left = position - 1;
-        valid.push(left);
-    }
-    if(!(position == 4 || position == 8 || position == 12 || position == 16)){ 
-        right = position + 1;
-        valid.push(right);
-    }
-    //calculates for edge of the board and corners.
-    
-
-}
-
-
 //redo function.. create validMove first
 function select(cell){
     selectCounter++;
@@ -105,6 +72,78 @@ function select(cell){
         selected = cell;
     }
     else if(selectCounter == 2){
-        validMove(cell);
+        if (validMove(cell)){
+            slide(selected,cell);
+        }
+        else{
+            console.log("not a valid move");
+        }
+        selectCounter = 0;
     }
 }
+
+//@returns true or false depending on if the secondCell is a valid move
+//checks if the two selected cells are valid to move(one of them is a blank)
+function validMove(secondCell){
+    var validMoves = calculateValid(selected);
+    var position2 = secondCell.cellPosition;
+    for(move of validMoves){
+        if(position2 == move){
+            return true;
+        }
+    }
+    return false;
+}
+
+//need to fix this function
+//@returns an array of valid moves
+//calculates the valid move
+function calculateValid(cell){
+    var valid = [];
+    var position1 = cell.cellPosition;
+    var up = -1;
+    var down = -1;
+    var left = -1;
+    var right = -1;
+    //calculates for edge of the board and corners.
+    //up valid moves
+    if (!position1 <= 4){
+        up = position1 - 4;
+        valid.push(up);
+    }
+    //down valid moves
+    if(!position1 >= 13){ 
+        down = position1 + 4;
+        valid.push(down);
+        console.log(down);
+    }
+    //left valid moves
+    if(!(position1 == 1 || position1 == 5 || position1 == 9 || position1 == 13)){ 
+        left = position1 - 1;
+        valid.push(left);
+    }
+    //right valid moves
+    if(!(position1 == 4 || position1 == 8 || position1 == 12 || position1 == 16)){ 
+        right = position1 + 1;
+        valid.push(right);
+    }
+    console.log(valid);
+    return valid;
+}
+
+//swaps the innnerHTML of the cell
+function slide(first, second){
+    
+    var tempDisplay = second.display;
+    second.display = first.display;
+    first.display = tempDisplay;
+
+    console.log(tempDisplay);
+    console.log(first.display);
+    console.log(second.display);
+
+    second.innerHTML = second.display;
+    first.innnerHTML = first.display;
+}
+
+
