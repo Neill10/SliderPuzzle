@@ -175,6 +175,8 @@ function slide(first, second){
 
 //slides the board 1000 times
 function shuffle1000(){
+    counter = 0;
+    counterDisplay.innerHTML = counter;
     for(var i = 0; i < 1000; i++){
         console.log("I: " + i);
         //searches through cellArray for display of 16
