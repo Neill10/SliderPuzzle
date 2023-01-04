@@ -10,6 +10,18 @@
 </head>
 <body onload="initialize();">
     <h1>Slider Puzzle</h1>
+    <div id="welcome">
+        Welcome to my Slider Puzzle Game. 
+        You will win if you bring bring the puzzle back to its original position.
+        To Play you have to select the blank block and click an adjacent block to swap them.
+        You can either shuffle the board yourself or click the shuffle button below.
+        <br>There is a counter below to track your shuffles. Have fun!
+    </div>
+    <button id="shuffle"onclick="shuffle1000()">Shuffle</button>
+    <div id="counter">COUNTER:
+        <span id="counterDisplay">0</span>
+    </div>
+    <div id="winDisplay"></div>
     <div class="tableContainer">
         <table id= "dicetable">
             <tr>
@@ -34,9 +46,10 @@
                 <td id="cell13" onclick="select(c13)">13</td>
                 <td id="cell14" onclick="select(c14)">14</td>
                 <td id="cell15" onclick="select(c15)">15</td>
-                <td id="cell16" onclick="select(c16)">blank</td>
+                <td id="cell16" onclick="select(c16)"></td>
             </tr>
         </table>
+
     </div>
 </body>
 </html>
