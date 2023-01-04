@@ -1,5 +1,5 @@
 function initialize(){
-    //diceTable = document.getElementById("dicetable");
+    //puzzleTable = document.getElementById("dicetable");
 
     //HTML Element Objects
     c1 = document.getElementById("cell1");
@@ -44,30 +44,6 @@ function initialize(){
         cellArray[i].display = i + 1;
         console.log(cellArray[i].display);
     }
-}
-
-function createTable(){
-    var num = 0;
-    /*
-    for (var i = 0; i < 4; i++){
-        var newRow = diceTable.insertRow();
-        
-        for(var x = 0; x < 4; x++)
-        {
-            var newCell = newRow.insertCell();
-            if(num != 15)
-            {
-                newCell.innerHTML = num + 1;
-                newCell.innerHTML.onclick = "BRUH";
-                num++;
-            }
-            else{
-                newCell.innerHTML = "empty";
-            }
-            cellArray.push(newCell);
-        }
-    }
-    */
 }
 
 //This function will do two different tasks based on the number of times it is run
