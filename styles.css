@@ -32,8 +32,11 @@ td{
     padding: 2px;
 }
 #shuffle{
-    background-color: yellow;
-    color:green;
+    margin: 1%;
+    background-color: green;
+    color:yellow;
+    height: 50px;
+    font-weight: bold;
 }
 #winDisplay{
     font-size: 100px;
