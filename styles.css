@@ -1,7 +1,7 @@
 body{
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: blue;
+    background-color: lightslategrey;
     color: white;
     text-align: center;
 }
@@ -20,7 +20,7 @@ table{
 }
 
 td{
-    border: 2px solid brown;
+    border: 2px double brown;
     padding:  8px;
     height: 100px;
     width: 150px;
