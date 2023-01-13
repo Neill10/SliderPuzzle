@@ -153,6 +153,7 @@ function slide(first, second){
 function shuffle1000(){
     counter = 0;
     counterDisplay.innerHTML = counter;
+    winDisplay.innerHTML = "";
     for(var i = 0; i < 1000; i++){
         console.log("I: " + i);
         //searches through cellArray for display of 16
